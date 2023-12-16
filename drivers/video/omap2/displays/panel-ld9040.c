@@ -132,6 +132,7 @@ static int ld9040_panel_send_sequence(struct ld9040 *lcd,
 
 	wbuf = seq;
 
+	printk(KERN_INFO "ld9040: DO WE GET HERE?\n");
 	while ((wbuf[i] & DEFMASK) != ENDDEF) {
 		printk(KERN_INFO "ld9040_panel_send_sequence: wbuf[%d] = 0x%04X\n", i, wbuf[i]);
 		if ((wbuf[i] & DEFMASK) != SLEEPMSEC) {
