@@ -114,6 +114,7 @@ static int ld9040_spi_write(struct ld9040 *lcd,
 {
 	int ret = 0;
 
+	printk(KERN_INFO "LD9040 SPI Write\n");
 	if (address != DATA_ONLY)
 		ret = ld9040_spi_write_byte(lcd, 0x0, address);
 	if (command != COMMAND_ONLY)
@@ -132,9 +133,8 @@ static int ld9040_panel_send_sequence(struct ld9040 *lcd,
 
 	wbuf = seq;
 
-	printk(KERN_INFO "ld9040: DO WE GET HERE?\n");
 	while ((wbuf[i] & DEFMASK) != ENDDEF) {
-		printk(KERN_INFO "ld9040_panel_send_sequence: wbuf[%d] = 0x%04X\n", i, wbuf[i]);
+		printk(KERN_INFO "LD9040 writing: 0x%04X\n", wbuf[i]);
 		if ((wbuf[i] & DEFMASK) != SLEEPMSEC) {
 			ret = ld9040_spi_write(lcd, wbuf[i], wbuf[i+1]);
 			if (ret)
@@ -1115,7 +1115,6 @@ static int ld9040_probe(struct spi_device *spi)
 
 	if (get_lcdtype == 1) { /* SM2 A2 */
 		printk(KERN_INFO "[LD9040 PROBE LOG] LCDTYPE : SM2 A2\n");
-		printk(KERN_INFO "[LD9040 PROBE LOG] DO WE GET HERE???\n");
 	} else { /* SM2 A1 */
 		printk(KERN_INFO "[LD9040 PROBE LOG] LCDTYPE : SM2\n");
 	}
