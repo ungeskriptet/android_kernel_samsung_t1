@@ -114,7 +114,6 @@ static int ld9040_spi_write(struct ld9040 *lcd,
 {
 	int ret = 0;
 
-	printk(KERN_INFO "LD9040 SPI Write\n");
 	if (address != DATA_ONLY)
 		ret = ld9040_spi_write_byte(lcd, 0x0, address);
 	if (command != COMMAND_ONLY)
@@ -134,7 +133,7 @@ static int ld9040_panel_send_sequence(struct ld9040 *lcd,
 	wbuf = seq;
 
 	while ((wbuf[i] & DEFMASK) != ENDDEF) {
-		printk(KERN_INFO "LD9040 writing: 0x%04X\n", wbuf[i]);
+		printk(KERN_INFO "LD9040 wbuf[i]: 0x%02X, wbuf[i+1]: 0x%02X\n", wbuf[i], wbuf[i+1]);
 		if ((wbuf[i] & DEFMASK) != SLEEPMSEC) {
 			ret = ld9040_spi_write(lcd, wbuf[i], wbuf[i+1]);
 			if (ret)
