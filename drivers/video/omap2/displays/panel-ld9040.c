@@ -1115,6 +1115,7 @@ static int ld9040_probe(struct spi_device *spi)
 
 	if (get_lcdtype == 1) { /* SM2 A2 */
 		printk(KERN_INFO "[LD9040 PROBE LOG] LCDTYPE : SM2 A2\n");
+		printk(KERN_INFO "[LD9040 PROBE LOG] DO WE GET HERE???\n");
 	} else { /* SM2 A1 */
 		printk(KERN_INFO "[LD9040 PROBE LOG] LCDTYPE : SM2\n");
 	}
