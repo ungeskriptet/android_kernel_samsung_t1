@@ -133,12 +133,13 @@ static int ld9040_panel_send_sequence(struct ld9040 *lcd,
 	wbuf = seq;
 
 	while ((wbuf[i] & DEFMASK) != ENDDEF) {
-		printk(KERN_INFO "LD9040 wbuf[i]: 0x%02X, wbuf[i+1]: 0x%02X\n", wbuf[i], wbuf[i+1]);
+		printk(KERN_INFO "LD9040 command: 0x%02X, data: 0x%02X\n", wbuf[i], wbuf[i+1]);
 		if ((wbuf[i] & DEFMASK) != SLEEPMSEC) {
 			ret = ld9040_spi_write(lcd, wbuf[i], wbuf[i+1]);
 			if (ret)
 				break;
 		} else
+			printk(KERN_INFO "LD9040 sleep: %lu", wbuf[i+1]*1000);
 			udelay(wbuf[i+1]*1000);
 		i += 2;
 	}
