@@ -477,7 +477,7 @@ static int ld9040_power_on(struct ld9040 *lcd)
 		dev_err(lcd->dev, "failed to initialize ldi.\n");
 		goto err;
 	} else {
-		printk(KERN_INFO "ld9040: Successfully initialized\n");
+		printk(KERN_INFO "LD9040: Successfully initialized\n");
 	}
 
 	ret = ld9040_ldi_enable(lcd);
@@ -485,7 +485,7 @@ static int ld9040_power_on(struct ld9040 *lcd)
 		dev_err(lcd->dev, "failed to enable ldi.\n");
 		goto err;
 	} else {
-		printk(KERN_INFO "ld9040: Successfully enabled\n");
+		printk(KERN_INFO "LD9040: Successfully enabled\n");
 	}
 
 	update_brightness(lcd);
