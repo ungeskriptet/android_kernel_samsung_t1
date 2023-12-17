@@ -359,7 +359,7 @@ static int ld9040_ldi_init(struct ld9040 *lcd)
 			pdata->seq_user_set,
 			pdata->seq_displayctl_set,
 			pdata->seq_gtcon_set,
-			pdata->acl_on,
+			/* pdata->acl_on, */
 			pdata->seq_panelcondition_set,
 			pdata->sleep_out,
 			pdata->elvss_on,
@@ -488,7 +488,8 @@ static int ld9040_power_on(struct ld9040 *lcd)
 		printk(KERN_INFO "LD9040: Successfully enabled\n");
 	}
 
-	//What happens if we don't update brightness?'
+	//What happens if we don't update brightness?
+	//Update: Still works
 	//update_brightness(lcd);
 
 	lcd->ldi_enable = 1;
