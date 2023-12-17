@@ -357,15 +357,15 @@ static int ld9040_ldi_init(struct ld9040 *lcd)
 	if (get_lcdtype) {  /* for SM2 A2 */
 		const unsigned short *init_seq[] = {
 			pdata->seq_user_set,
-			pdata->seq_displayctl_set,
-			pdata->seq_gtcon_set,
-			/* pdata->acl_on, */
 			pdata->seq_panelcondition_set,
-			pdata->sleep_out,
-			pdata->elvss_on,
+			pdata->seq_displayctl_set,
+			/* pdata->acl_on, */
 			pdata->seq_sm2_a2_pwrctl_set,
+			pdata->elvss_on,
+			pdata->seq_gtcon_set,
 			pdata->seq_gamma_set1,
 			pdata->gamma_ctrl,
+			pdata->sleep_out,
 		};
 		for (i = 0; i < ARRAY_SIZE(init_seq); i++) {
 			printk(KERN_INFO "ld9040: Sending init_seq: %i\n", i);
