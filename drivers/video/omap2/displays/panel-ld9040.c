@@ -368,6 +368,7 @@ static int ld9040_ldi_init(struct ld9040 *lcd)
 			pdata->gamma_ctrl,
 		};
 		for (i = 0; i < ARRAY_SIZE(init_seq); i++) {
+			printk(KERN_INFO "ld9040: Sending init_seq: %i\n", i);
 			ret = ld9040_panel_send_sequence(lcd, init_seq[i]);
 			if (ret)
 				break;
@@ -475,12 +476,16 @@ static int ld9040_power_on(struct ld9040 *lcd)
 	if (ret) {
 		dev_err(lcd->dev, "failed to initialize ldi.\n");
 		goto err;
+	} else {
+		printk(KERN_INFO "ld9040: Successfully initialized\n");
 	}
 
 	ret = ld9040_ldi_enable(lcd);
 	if (ret) {
 		dev_err(lcd->dev, "failed to enable ldi.\n");
 		goto err;
+	} else {
+		printk(KERN_INFO "ld9040: Successfully enabled\n");
 	}
 
 	update_brightness(lcd);
