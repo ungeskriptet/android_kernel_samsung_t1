@@ -488,7 +488,8 @@ static int ld9040_power_on(struct ld9040 *lcd)
 		printk(KERN_INFO "LD9040: Successfully enabled\n");
 	}
 
-	update_brightness(lcd);
+	//What happens if we don't update brightness?'
+	//update_brightness(lcd);
 
 	lcd->ldi_enable = 1;
 
