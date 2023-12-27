@@ -605,6 +605,8 @@ static const unsigned short *SEQ_SM2_ELVSS_set[] = {
 
 static const unsigned short SEQ_GTCON[] = {
 	0xF7, 0x09,
+	DATA_ONLY, 0x00,
+	DATA_ONLY, 0x00,
 
 	ENDDEF, 0x00
 };
