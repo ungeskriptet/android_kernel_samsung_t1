@@ -359,7 +359,7 @@ static int ld9040_ldi_init(struct ld9040 *lcd)
 			pdata->seq_user_set,
 			pdata->seq_panelcondition_set,
 			pdata->seq_displayctl_set,
-			/* pdata->acl_on, */
+			pdata->seq_manpwr_set,
 			pdata->seq_sm2_a2_pwrctl_set,
 			pdata->elvss_on,
 			pdata->seq_gtcon_set,
